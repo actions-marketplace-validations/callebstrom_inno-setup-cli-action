@@ -1,0 +1,13 @@
+name: '@callebstrom/inno-setup-cli'
+description: Action container to generate setup files using Inno Setup
+author: '@cbergstrom'
+inputs:
+  file:
+    description: 'Input ISS file'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - run: ${{ github.action_path }}\bin\ISCC.exe ${{ inputs.file }}
+      shell: cmd
